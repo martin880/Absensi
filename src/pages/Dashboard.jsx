@@ -1,13 +1,8 @@
-import React from "react";
+import React, { state } from "react";
 import {
 	Flex,
 	Box,
-	FormControl,
-	FormLabel,
-	Input,
-	Checkbox,
 	Stack,
-	Link,
 	Button,
 	Heading,
 	Spacer,
@@ -15,16 +10,20 @@ import {
 	HStack,
 	Text,
 	Icon,
-	Container,
 	VStack,
 	Center,
 } from "@chakra-ui/react";
 import { HiChartBar } from "react-icons/hi";
 import { MdWifi } from "react-icons/md";
 import { CgBattery } from "react-icons/cg";
-import { BsArrowLeft } from "react-icons/bs";
+import { BsArrowLeft, BsCupHot } from "react-icons/bs";
+import { InfoIcon } from "@chakra-ui/icons";
+import Clock from "react-live-clock";
 
 const Dashboard = () => {
+	// state = {
+	// 	curDT: new Date().toLocaleString(),
+	// };
 	return (
 		<Flex align={"center"} justify={"center"}>
 			<Stack maxW={"lg"} py={12}>
@@ -40,7 +39,7 @@ const Dashboard = () => {
 						<Flex>
 							<Box p="4">
 								<Heading alignSelf={"baseline"} fontSize={"sm"} color={"white"}>
-									09.23
+									<Clock style={{ fontSize: "1.3em" }} />
 								</Heading>
 							</Box>
 							<Spacer />
@@ -55,35 +54,35 @@ const Dashboard = () => {
 							</Box>
 						</Flex>
 						<Stack spacing={10}>
-							<Flex>
-								<HStack>
-									<Center>
-										<Box p="2">
-											<Icon
-												boxSize={"12px"}
-												color={"white"}
-												as={BsArrowLeft}
-											></Icon>
-										</Box>
-									</Center>
-								</HStack>
-								{/* <HStack>
-									<Center>
-										<Box p="2">
-											<Text color={"white"}>Live Attendance</Text>
-										</Box>
-									</Center>
-								</HStack> */}
-							</Flex>
+							<HStack>
+								<Center>
+									<Box p="2">
+										<Icon
+											boxSize={"10"}
+											color={"white"}
+											as={BsArrowLeft}
+										></Icon>
+									</Box>
+								</Center>
+								<Center>
+									{/* <Box p="4" display={"flex"}>
+										<Text color={"white"} textAlign={"center"}>
+											Live Attendance
+										</Text>
+									</Box> */}
+								</Center>
+							</HStack>
 						</Stack>
 						<Stack spacing={10}>
 							<Center>
 								<VStack>
 									<Box>
-										<Heading color={"white"}>09 23</Heading>
+										<Heading color={"white"}>
+											<Clock />
+										</Heading>
 									</Box>
 									<Box>
-										<Text color={"white"}>Wed, 15 May 2023</Text>
+										<Text color={"white"}>Wed, 17 May 2023</Text>
 									</Box>
 								</VStack>
 							</Center>
@@ -99,36 +98,95 @@ const Dashboard = () => {
 									<Center>
 										<VStack>
 											<Text fontWeight={"bold"} color={"gray.400"}>
-												Schedule : 17 May 2023
+												Schedule: 17 May 2023
 											</Text>
-											<Text fontWeight={"bold"} color={"black"}>
+											<Text
+												fontSize={"22px"}
+												fontWeight={"bold"}
+												color={"black"}
+											>
 												SH2OPA
 											</Text>
 											<Text
-												fontSize={"28px"}
+												fontSize={"25px"}
 												fontWeight={"bold"}
 												color={"black"}
 											>
 												08.00 - 17.00
 											</Text>
-											<Text color={"blue"} as="samp">
+											<Text color={"blue"} as="samp" cursor={"pointer"}>
 												See 1 other attendance location
 											</Text>
 											<Box
 												rounded={"md"}
 												minW={"300px"}
 												bgColor={"#bcdee8"}
-												p={4}
-											></Box>
+												p={1}
+											>
+												<Text
+													color={"gray.500"}
+													display={"flex"}
+													align={"center"}
+													justifyContent={"center"}
+													fontSize={"10px"}
+												>
+													<Box mx={"2"}>
+														<InfoIcon />
+													</Box>
+													Selfie foto is required to Clock In/Out
+												</Text>
+											</Box>
 											<HStack>
-												<Button size={"lg"} colorScheme="facebook">
-													Clock In
+												<Button
+													minW={"143px"}
+													minH={"40px"}
+													colorScheme="facebook"
+												>
+													<Text fontSize={"16px"}>Clock In</Text>
 												</Button>
 												<Spacer />
-												<Button size={"lg"} colorScheme="facebook">
-													Clock Out
+												<Button
+													minW={"143px"}
+													minH={"40px"}
+													colorScheme="facebook"
+												>
+													<Text fontSize={"16px"}>Clock Out</Text>
 												</Button>
 											</HStack>
+											<Box
+												borderRadius={"50px"}
+												minW={"300px"}
+												minH={"30px"}
+												bgColor={"gray.200"}
+												p={1}
+											>
+												<HStack>
+													<Button
+														minW={"70px"}
+														borderRadius={"50px"}
+														colorScheme="gray"
+														bg={useColorModeValue("white", "gray.700")}
+														boxShadow={"md"}
+														_hover={"none"}
+													>
+														<Icon
+															boxSize={"5"}
+															color={"red"}
+															as={BsCupHot}
+														></Icon>
+													</Button>
+													<Spacer />
+													<Text
+														textColor={"GrayText"}
+														display={"flex"}
+														paddingEnd={"10"}
+														textAlign={"center"}
+														justifyContent={"center"}
+													>
+														Harusnya ini Slider
+													</Text>
+												</HStack>
+											</Box>
 										</VStack>
 									</Center>
 								</Box>

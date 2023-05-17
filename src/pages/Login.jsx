@@ -1,5 +1,4 @@
 import {
-	Flex,
 	Box,
 	FormControl,
 	FormLabel,
@@ -9,20 +8,14 @@ import {
 	Link,
 	Button,
 	Image,
-	Text,
 	useColorModeValue,
+	Center,
 } from "@chakra-ui/react";
 import logo from "../assets/img/logo-talenta.svg";
 
 export default function Login() {
 	return (
-		<Flex
-			// minW={"100vh"}
-			// minH={"100vh"}
-			align={"center"}
-			justify={"center"}
-			// bg={useColorModeValue("gray.50", "gray.800")}
-		>
+		<Center>
 			<Stack spacing={8} mx={"auto"} maxW={"lg"} py={12} px={6}>
 				<Box
 					rounded={"lg"}
@@ -64,6 +57,6 @@ export default function Login() {
 					</Stack>
 				</Box>
 			</Stack>
-		</Flex>
+		</Center>
 	);
 }
